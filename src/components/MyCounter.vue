@@ -1,21 +1,25 @@
 <template>
   <div>
     Count: {{ count }}
-    <button @click="onclick">Increment</button>
+    <button @click="increment">Increment</button>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
+
 export default {
-  data () {
-    return {
-      count: 1
-    }
+  computed: {
+    // count() {
+    //   return this.$store.state.count
+    // }
+    ...mapGetters(['count'])
   },
   methods: {
-    onclick () {
-      this.count++
-    }
+    // onclick () {
+    //   this.$store.commit('increment')
+    // }
+    ...mapMutations(['increment'])
   }
 }
 </script>
