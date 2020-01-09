@@ -2,11 +2,12 @@
   <div>
     Count: {{ count }}
     <button @click="increment">Increment</button>
+    <button @click="incrementAsync">Increment Async</button>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 
 export default {
   computed: {
@@ -16,6 +17,12 @@ export default {
     ...mapGetters(['count'])
   },
   methods: {
+    // incrementAsync () {
+    //   this.$store.dispatch({
+    //     type: 'incrementAsync'
+    //   })
+    // },
+    ...mapActions(['incrementAsync']),
     // onclick () {
     //   this.$store.commit('increment')
     // }

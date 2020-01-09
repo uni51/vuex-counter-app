@@ -15,6 +15,11 @@ const store = new Vuex.Store({
       state.count++
     },
   },
+  actions: {
+    incrementAsync({ commit }){
+      setTimeout(() => commit('increment'), 2000)
+    }
+  }
 })
 
 export default store
